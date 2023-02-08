@@ -5,6 +5,10 @@ LDAP is a hierarchical, client-server based directory service protocol. It allow
 DAP directories are organized in a tree-like structure, with each node in the tree called an "entry". Each entry is a collection of attributes, which describe the characteristics of the entry and can include information such as username, password, email address, and so on.
 
 LDAP uses a series of operations, such as bind, search, compare, add, delete, and modify, to allow users that have been assigned correct permission to interact with the directory service.
+
+Microsoft's implementation of LDAP on Windows servers is a directory service built into the Windows Server operating system. It is often referred to as Active Directory Domain Services (AD DS) and is used for managing and organizing information about network resources in a Windows environment, such as user accounts, groups, computers, and other devices.
+
+In AD DS, LDAP is used as the underlying protocol for communication between clients and servers.
 ```
 $ nmap -p- -sV sauna.htb
 
