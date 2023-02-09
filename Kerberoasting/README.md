@@ -1,5 +1,5 @@
 ``` 
-$   kerbrute userenum -d MCDONALDS.LOCAL /usr/share/wordlists/SecLists/Usernames/xato-net-10-million-usernames.txt --dc dc-01.htb                                                            
+$   kerbrute userenum -d MCDONALDS.LOCAL SecLists/Usernames/xato-net-10-million-usernames.txt --dc dc-01.htb                                                            
 
 
     __             __               __     
