@@ -12,9 +12,9 @@ In AD DS, LDAP is used as the underlying protocol for communication between clie
 ```
 $ nmap -p- -sV sauna.htb
 
-PORT    STATE SERVICE    VERSION
-389/tcp open  ldap       Microsoft Windows Active Directory LDAP
+389/tcp open  ldap       Microsoft Windows Active Directory LDAP (Domain: MCDONALDS.LOCAL, Site: Default-First-Site-Name)
 636/tcp open  ldapssl
+Service Info: Host: DC-01; OS: Windows; CPE: cpe:/o:microsoft:windows
 ```
 # Enumerating the domain
 
@@ -22,7 +22,7 @@ PORT    STATE SERVICE    VERSION
 $ python enum_policy.py
 
 #############################################
-# Domain name: DC=EGOTISTICAL-BANK,DC=LOCAL #
+# Domain name: DC=MCDONALDS,DC=LOCAL #
 #############################################
 
 **Lockout Threshold: 0**
