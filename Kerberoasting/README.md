@@ -1,3 +1,13 @@
+# Kerberoasting
+
+Kerberoasting is a type of attack against Microsoft Active Directory environments that involves extracting service account passwords from Kerberos tickets. Service accounts are often used to run automated processes and scheduled tasks, and because they often have high privileges within an organization, they can be a valuable target for attackers.
+
+The basic method of kerberoasting involves requesting a ticket for a service account, then cracking the encrypted password hash that is included in the ticket.
+
+# Pre-Requisites
+
+Kerberoastable users need to have the 'DONT_REQ_PREAUTH' flag set.
+
 ``` 
 $   kerbrute userenum -d MCDONALDS.LOCAL SecLists/Usernames/xato-net-10-million-usernames.txt --dc dc-01.htb                                                            
 
