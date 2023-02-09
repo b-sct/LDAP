@@ -6,7 +6,7 @@ The basic method of kerberoasting involves requesting a ticket for a service acc
 
 # Pre-Requisites
 
-Kerberoastable users need to have the 'DONT_REQ_PREAUTH' flag set.
+Kerberoastable users need to have the `DONT_REQ_PREAUTH` flag set.
 
 ``` 
 $   kerbrute userenum -d MCDONALDS.LOCAL SecLists/Usernames/xato-net-10-million-usernames.txt --dc dc-01.htb                                                            
