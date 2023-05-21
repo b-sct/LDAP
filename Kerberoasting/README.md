@@ -49,7 +49,7 @@ Cracking the hash:
 john kerberoastables.txt --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 ```
-hashcat -a 0 -m 3200 kerberoastable.txt /usr/share/wordlists/rockyou.txt
+hashcat -a 0 -m 19600 kerberoastable.txt /usr/share/wordlists/rockyou.txt
 # -m flags
   19600 | Kerberos 5, etype 17, TGS-REP
   19700 | Kerberos 5, etype 18, TGS-REP
