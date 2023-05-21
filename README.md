@@ -30,3 +30,7 @@ Lockout Duration: -18000000000
 Minimum Password Length: 7
 Maximum Password Age: -36288000000000
 ```
+
+```
+$ ldapsearch -h 10.10.11.168 -x -s base namingcontexts
+```
