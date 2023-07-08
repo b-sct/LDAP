@@ -25,3 +25,4 @@ Enumeration
         SYSVOL          Disk      Logon server share
 ```
 ```smbclient -N \\\\10.10.11.174\\support-tools```
+```smbclient -L \\\\10.10.11.174 -U 'support\guest'```
