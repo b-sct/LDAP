@@ -14,3 +14,12 @@ Domain Sid: S-1-5-21-1677581083-3380853377-188903654
 ```
 # SMB Shares
 ```smbclient -N -L \\\\10.10.11.174 # NULL session```
+```        Sharename       Type      Comment
+        ---------       ----      -------
+        ADMIN$          Disk      Remote Admin
+        C$              Disk      Default share
+        IPC$            IPC       Remote IPC
+        NETLOGON        Disk      Logon server share
+        support-tools   Disk      support staff tools
+        SYSVOL          Disk      Logon server share
+```
