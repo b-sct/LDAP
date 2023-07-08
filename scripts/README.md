@@ -1,6 +1,6 @@
 # Password policy enumeration
-```$ python enum_policy.py support.htb 'support\support' 'Ironside437pleasure401Watchful'```
 can we brute?
+```$ python enum_policy.py support.htb 'support\support' 'Ironside437pleasure401Watchful'```
 ```
 ##################################
 # Domain name: DC=support,DC=htb #
