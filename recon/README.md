@@ -12,3 +12,5 @@
 Domain Name: SUPPORT
 Domain Sid: S-1-5-21-1677581083-3380853377-188903654
 ```
+# SMB Shares
+```smbclient -N -L \\\\10.10.11.174 # NULL session```
