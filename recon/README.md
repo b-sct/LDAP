@@ -13,6 +13,7 @@ Domain Name: SUPPORT
 Domain Sid: S-1-5-21-1677581083-3380853377-188903654
 ```
 # SMB Shares
+Enumeration
 ```smbclient -N -L \\\\10.10.11.174 # NULL session```
 ```        Sharename       Type      Comment
         ---------       ----      -------
@@ -23,3 +24,4 @@ Domain Sid: S-1-5-21-1677581083-3380853377-188903654
         support-tools   Disk      support staff tools
         SYSVOL          Disk      Logon server share
 ```
+```smbclient -N \\\\10.10.11.174\\support-tools```
