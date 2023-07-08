@@ -1,29 +1,15 @@
-enum
-==================================================== 
-|    Password Policy Information for 10.10.10.182    |
-==================================================== 
-[+] Attaching to 10.10.10.182 using a NULL share
-[+] Trying protocol 445/SMB...
-[+] Found domain(s):
-        [+] CASCADE
-        [+] Builtin
-[+] Password Info for Domain: CASCADE
-        [+] Minimum password length: 5
-        [+] Password history length: None
-        [+] Maximum password age: Not Set
-        [+] Password Complexity Flags: 000000
-                [+] Domain Refuse Password Change: 0
-                [+] Domain Password Store Cleartext: 0
-                [+] Domain Password Lockout Admins: 0
-                [+] Domain Password No Clear Change: 0
-                [+] Domain Password No Anon Change: 0
-                [+] Domain Password Complex: 0
-        [+] Minimum password age: None
-        [+] Reset Account Lockout Counter: 30 minutes 
-        [+] Locked Account Duration: 30 minutes 
-        [+] Account Lockout Threshold: None
-        [+] Forced Log off Time: Not Set
-
-[+] Retieved partial password policy with rpcclient:
-Password Complexity: Disabled
-Minimum Password Length: 5
+# Password policy enumeration
+```$ python enum_policy.py support.htb 'support\support' 'Ironside47pleasure40Watchful'```
+```
+##################################
+# Domain name: DC=support,DC=htb #
+##################################
+-------------------------------
+[b'[LDAP://CN={31B2F340-016D-11D2-945F-00C04FB984F9},CN=Policies,CN=System,DC=support,DC=htb;0]']
+lockoutThreshold: [b'0']
+lockoutDuration: [b'-18000000000']
+minPwdAge: [b'-864000000000']
+maxPwdAge: [b'-9223372036854775808']
+minPwdLength: [b'7']
+modifiedCount: [b'1']
+```
