@@ -61,7 +61,10 @@ AD CS can provide certificate-based user authentication – which can be an extr
 for example, the template 'CorpVPN' is vulnerable ESC1, where an enrolle from the 512 permission group can supply a subject for client authentication.
 
 ### Exploitation
-attackers can then use a tool such as ```Rubeus``` to request an authentication token from Kerberos (available to any user). The attackers then use Kerberos authentication to request a certificate using the vulnerable template and specify the request is on behalf of any domain admin they choose.
+attackers can then use a tool such as ```Rubeus``` to:
+
+1. request an authentication token from Kerberos (available to any user).
+2. Use Kerberos authentication to request a certificate using the vulnerable template
 
 if the regkey ```HKLM:\SYSTEM\CurrentControlSet\Services\Kdc\StrongCertificateBindingEnforcement``` is set to 2, attackers will have to supply the szOID_NTDS_CA_SECURITY_EXT value when making a certificate request.
 
