@@ -12,6 +12,7 @@ AD CS can provide certificate-based user authentication – which can be an extr
 if the regkey ```HKLM:\SYSTEM\CurrentControlSet\Services\Kdc\StrongCertificateBindingEnforcement``` is set to 2, attackers will have to supply the szOID_NTDS_CA_SECURITY_EXT value when making a certificate request.
 ```If (Test-Path "HKLM:\SYSTEM\CurrentControlSet\Services\Kdc\StrongCertificateBindingEnforcement") {(Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Kdc").StrongCertificateBindingEnforcement}```
 
+```
 {
   "Certificate Authorities": {
     "0": {
@@ -58,6 +59,7 @@ if the regkey ```HKLM:\SYSTEM\CurrentControlSet\Services\Kdc\StrongCertificateBi
       }
     },
   }
+```
 
 for example, the template 'CorpVPN' is vulnerable ESC1, where an enrolle from the 512 permission group can supply a subject for client authentication.
 
