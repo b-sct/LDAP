@@ -9,9 +9,6 @@ AD CS can provide certificate-based user authentication – which can be an extr
 
 ```certipy find -u 'username@authority.htb' -p 'password' -dc-ip 10.10.11.222```
 
-if the regkey ```HKLM:\SYSTEM\CurrentControlSet\Services\Kdc\StrongCertificateBindingEnforcement``` is set to 2, attackers will have to supply the szOID_NTDS_CA_SECURITY_EXT value when making a certificate request.
-```If (Test-Path "HKLM:\SYSTEM\CurrentControlSet\Services\Kdc\StrongCertificateBindingEnforcement") {(Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Kdc").StrongCertificateBindingEnforcement}```
-
 ```
 {
   "Certificate Authorities": {
@@ -65,3 +62,7 @@ for example, the template 'CorpVPN' is vulnerable ESC1, where an enrolle from th
 
 ### Exploitation
 attackers can then use a tool such as ```Rubeus``` to request an authentication token from Kerberos (available to any user). The attackers then use Kerberos authentication to request a certificate using the vulnerable template and specify the request is on behalf of any domain admin they choose.
+
+if the regkey ```HKLM:\SYSTEM\CurrentControlSet\Services\Kdc\StrongCertificateBindingEnforcement``` is set to 2, attackers will have to supply the szOID_NTDS_CA_SECURITY_EXT value when making a certificate request.
+
+```If (Test-Path "HKLM:\SYSTEM\CurrentControlSet\Services\Kdc\StrongCertificateBindingEnforcement") {(Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Kdc").StrongCertificateBindingEnforcement}```
