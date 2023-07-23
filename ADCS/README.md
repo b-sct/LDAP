@@ -58,7 +58,7 @@ AD CS can provide certificate-based user authentication – which can be an extr
   }
 ```
 
-for example, the template 'CorpVPN' is vulnerable ESC1, where an enrolle from the 512 permission group can supply a subject for client authentication.
+for example, the template 'CorpVPN' is vulnerable ESC1, where an enrolle from the Computers security group can supply a subject for client authentication.
 
 ### Exploitation
 attackers can then use a tool such as ```Rubeus``` to:
